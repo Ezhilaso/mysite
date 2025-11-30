@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CRUD Database App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simple CRUD Database App</h1>
+            <p>Manage your items with Create, Read, Update, and Delete operations</p>
+        </header>
+
+        <section class="form-section">
+            <h2 id="form-title">Add New Item</h2>
+            <form id="item-form">
+                <input type="hidden" id="item-id" value="">
+                
+                <div class="form-group">
+                    <label for="item-name">Name *</label>
+                    <input type="text" id="item-name" required placeholder="Enter item name">
+                </div>
+
+                <div class="form-group">
+                    <label for="item-emp-code">Emp Code *</label>
+                    <input type="text" id="item-emp-code" required placeholder="Enter employee code">
+                </div>
+
+                <div class="form-group">
+                    <label for="item-taluk-name">Taluk Name *</label>
+                    <select id="item-taluk-name" required>
+                        <option value="">Select Taluk Name</option>
+                        <option value="Nannilam">Nannilam</option>
+                        <option value="Valangaiman">Valangaiman</option>
+                        <option value="Needamanglam">Needamanglam</option>
+                        <option value="Tiruvarur">Tiruvarur</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-description">Description</label>
+                    <textarea id="item-description" rows="4" placeholder="Enter item description"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn">Add Item</button>
+                    <button type="button" id="cancel-btn" style="display: none;">Cancel</button>
+                    <button type="reset" id="reset-btn">Reset</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="items-section">
+            <div class="section-header">
+                <h2>Items List</h2>
+                <button type="button" id="export-excel-btn" class="btn-export">Export to Excel</button>
+            </div>
+            <div id="items-count"></div>
+            <div class="table-container">
+                <table id="items-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Emp Code</th>
+                            <th>Taluk Name</th>
+                            <th>Description</th>
+                            <th>Date Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items-tbody">
+                        <!-- Items will be dynamically inserted here -->
+                    </tbody>
+                </table>
+                <div id="empty-message" class="empty-message" style="display: none;">
+                    <p>No items found. Add your first item above!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SheetJS library for Excel export -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
